@@ -1,0 +1,26 @@
+{
+  "name": "Java 11 Spring Minimal",
+  // 1. 使用官方优化的 Java 11 基础镜像 (基于 Debian，轻量且稳定)
+  "image": "mcr.microsoft.com/devcontainers/java:11",
+
+  "customizations": {
+    "vscode": {
+      // 2. 只安装 Spring 开发最核心的插件
+      "extensions": [
+        "vscjava.vscode-java-pack",      // Java 基础包 (含 Maven/Gradle 支持, Debugger)
+        "vmware.vscode-spring-boot",     // Spring Boot Tools (核心支持)
+        "vscjava.vscode-spring-initializr" // 快速创建 Spring 项目 (可选，推荐)
+      ],
+      "settings": {
+        // 3. 针对 Java 11 的一些优化配置 (可选)
+        "java.configuration.updateBuildConfiguration": "automatic"
+      }
+    }
+  },
+
+  // 4. 自动转发 Spring Boot 默认端口
+  "forwardPorts": [8080],
+
+  // 5. 容器创建后自动运行的命令 (可选: 比如打印 Java 版本以确认)
+  "postCreateCommand": "java -version && mvn -version"
+}
