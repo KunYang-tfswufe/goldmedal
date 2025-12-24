@@ -13,9 +13,11 @@ import java.util.stream.Collectors;
 public class GoldMedalController {
     // TODO: declare references to your repositories
     private final GoldMedalRepository goldMedalRepository;
+    private final CountryRepository countryRepository;
     // TODO: update your constructor to include your repositories
-    public GoldMedalController(final GoldMedalRepository goldMedalRepository) {
+    public GoldMedalController(final GoldMedalRepository goldMedalRepository, final CountryRepository countryRepository) {
         this.goldMedalRepository = goldMedalRepository;
+        this.countryRepository = countryRepository;
     }
 
     @GetMapping
